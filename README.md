@@ -4,7 +4,7 @@ This project combines a TypeScript Express server (backend) with a React applica
 
 ## Overview
 
-- The **Server** (TypeScript Express): Manages data storage and retrieval using a simple text file as a database.
+- The **Server** (TypeScript Express): Manages data storage and retrieval using a simple JSON file as a database.
 - The **Client** (TypeScript React): Allows users to interact with their profile data through a web interface.
 
 ## Getting Started
@@ -56,7 +56,7 @@ This project combines a TypeScript Express server (backend) with a React applica
 - Start both the server and the client.
 - Access the client application via a web browser at `http://localhost:3000`.
 - Interact with the user interface to view and update user profile information.
-- The server will handle requests and interact with the text file to store/retrieve data.
+- The server will handle requests and interact with the JSON file to store/retrieve data.
 
 ## API Endpoints
 

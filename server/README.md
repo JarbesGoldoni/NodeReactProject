@@ -5,7 +5,7 @@ This is a simple TypeScript Express server designed to handle basic CRUD operati
 ## Features
 
 - Express server with CORS enabled
-- Reading and writing JSON data to and from a text file
+- Reading and writing JSON data to and from a JSON file
 - Basic error handling
 - RESTful API with GET and POST methods
 
