@@ -17,14 +17,6 @@ To run the automated tests for this system:
 npm test
 ```
 
-### Running the Application
-
-1. Start the React application:
-   ```
-   npm start
-   ```
-2. The application should now be running and accessible via [http://localhost:3000](http://localhost:3000).
-
 ## API Endpoints
 
 - `GET /api` - Retrieve user data from the file.
