@@ -1,0 +1,13 @@
+{
+  "user": {
+    "firstname": "Jarbes",
+    "email": "jarbes.d@gmail.com"
+  },
+  "permissions": [
+    "user:profile:view",
+    "user:profile:firstname:view",
+    "user:profile:email:view",
+    "user:profile:firstname:edit",
+    "user:profile:email:edit"
+  ]
+}
