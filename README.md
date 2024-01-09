@@ -1,3 +1,5 @@
+# Sigma Software - Test
+
 # NodeReact Full-Stack Project
 
 This project combines a TypeScript Express server (backend) with a React application (frontend) to create a full-stack solution for managing user profiles. The server handles CRUD operations, while the frontend provides a user interface for viewing and updating user data.
