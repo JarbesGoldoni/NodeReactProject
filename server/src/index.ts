@@ -3,16 +3,20 @@ import cors from 'cors'
 import fs from 'fs'
 import path from 'path'
 
+// Initialize the express application
 const app = express()
+// Set the port from environment or default to 4000
 const port = process.env.PORT ? parseInt(process.env.PORT) : 4000
 
+// Middleware to enable CORS (Cross-Origin Resource Sharing)
 app.use(cors())
+// Middleware to parse JSON bodies
 app.use(express.json())
 
-// Change file path to point to data.json
+// Define the path to the JSON data file
 const filePath = path.join(__dirname, 'data.json')
 
-// GET request to retrieve data from the file
+// Handle GET requests to '/api', to read and return data from the JSON file
 app.get('/api', (req: Request, res: Response) => {
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
@@ -21,7 +25,6 @@ app.get('/api', (req: Request, res: Response) => {
     }
 
     try {
-      // Directly parse the data since it's already in JSON format
       const fileData = JSON.parse(data)
       res.json(fileData)
     } catch (parseError) {
@@ -31,7 +34,7 @@ app.get('/api', (req: Request, res: Response) => {
   })
 })
 
-// POST request to update data in the file
+// Handle POST requests to '/api/update', to update the user data in the JSON file
 app.post('/api/update', (req, res) => {
   const newUserData = req.body
 
@@ -43,12 +46,12 @@ app.post('/api/update', (req, res) => {
 
     try {
       const fileData = JSON.parse(data)
+      // Update the user data with new data from the request body
       fileData.user = newUserData
 
-      // Write the updated object back to the file
       fs.writeFile(
         filePath,
-        JSON.stringify(fileData, null, 2),
+        JSON.stringify(fileData, null, 2), // Beautify the JSON output
         'utf8',
         (writeErr) => {
           if (writeErr) {
@@ -65,7 +68,7 @@ app.post('/api/update', (req, res) => {
   })
 })
 
-// Start the server
+// Start the server on the specified port
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}/`)
 })
