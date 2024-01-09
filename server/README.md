@@ -1,4 +1,3 @@
-````markdown
 # TypeScript Express Server
 
 This is a simple TypeScript Express server designed to handle basic CRUD operations. It uses a text file (`data.txt`) as a database to store and retrieve user data.
