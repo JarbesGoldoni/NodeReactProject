@@ -9,7 +9,8 @@ const port = process.env.PORT ? parseInt(process.env.PORT) : 4000
 app.use(cors())
 app.use(express.json())
 
-const filePath = path.join(__dirname, 'data.txt') // Path to your text file
+// Change file path to point to data.json
+const filePath = path.join(__dirname, 'data.json')
 
 // GET request to retrieve data from the file
 app.get('/api', (req: Request, res: Response) => {
@@ -20,6 +21,7 @@ app.get('/api', (req: Request, res: Response) => {
     }
 
     try {
+      // Directly parse the data since it's already in JSON format
       const fileData = JSON.parse(data)
       res.json(fileData)
     } catch (parseError) {
@@ -43,6 +45,7 @@ app.post('/api/update', (req, res) => {
       const fileData = JSON.parse(data)
       fileData.user = newUserData
 
+      // Write the updated object back to the file
       fs.writeFile(
         filePath,
         JSON.stringify(fileData, null, 2),

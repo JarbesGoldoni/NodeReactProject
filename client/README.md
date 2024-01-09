@@ -15,14 +15,6 @@ This project is a React application that allows users to view and update their p
 - `InputField.tsx`: A reusable input field component.
 - `apiService.ts`: Contains functions for API calls to fetch and update user data.
 
-### Running the tests
-
-To run the automated tests for this system:
-
-```bash
-npm test
-```
-
 ## API Endpoints
 
 The application expects the following API endpoints:

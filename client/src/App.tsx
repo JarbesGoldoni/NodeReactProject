@@ -1,11 +1,21 @@
+/**
+ * The main component of the application.
+ * Renders input fields for user data and allows updating the data.
+ */
 import React, { useState, useEffect } from 'react'
 import { getUserData, updateUserData } from './apiService'
 import InputField from './InputField'
 
 const App: React.FC = () => {
+  /**
+   * State variables for user data and permissions.
+   */
   const [userData, setUserData] = useState({ firstname: '', email: '' })
   const [permissions, setPermissions] = useState<string[]>([])
 
+  /**
+   * Fetches user data and permissions on component mount.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,6 +32,9 @@ const App: React.FC = () => {
     fetchData()
   }, [])
 
+  /**
+   * Handles the form submission and updates user data.
+   */
   const handleSubmit = async () => {
     try {
       const response = await updateUserData(userData)
@@ -37,8 +50,19 @@ const App: React.FC = () => {
     }
   }
 
+  /**
+   * Checks if the user has permission to view a specific field.
+   * @param field - The field to check permission for.
+   * @returns True if the user has permission to view the field, false otherwise.
+   */
   const canView = (field: string) =>
     permissions.includes(`user:profile:${field}:view`)
+
+  /**
+   * Checks if the user has permission to edit a specific field.
+   * @param field - The field to check permission for.
+   * @returns True if the user has permission to edit the field, false otherwise.
+   */
   const canEdit = (field: string) =>
     permissions.includes(`user:profile:${field}:edit`)
 

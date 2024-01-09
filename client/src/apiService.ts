@@ -1,3 +1,4 @@
+// Function to fetch user data from the server
 export const getUserData = async () => {
   try {
     const response = await fetch('http://localhost:4000/api')
@@ -10,6 +11,7 @@ export const getUserData = async () => {
   }
 }
 
+// Function to update user data on the server
 export const updateUserData = async (userData: {
   firstname: string
   email: string
